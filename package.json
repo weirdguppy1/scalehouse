@@ -1,0 +1,46 @@
+{
+  "name": "local-service-ai-phone-automation",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Backend foundation for a configurable AI phone call automation platform.",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "typecheck": "tsc --noEmit",
+    "test": "npm run build && node --test dist/**/*.test.js",
+    "simulate:assistant": "npm run build && node dist/scripts/simulate-assistant-request.js",
+    "doctor": "npm run build && node dist/scripts/doctor.js",
+    "smoke:supabase": "npm run build && node dist/scripts/smoke-supabase.js",
+    "validate:business": "npm run build && node dist/scripts/validate-business.js",
+    "reprocess:call": "npm run build && node dist/scripts/reprocess-call.js",
+    "recover:calls": "npm run build && node dist/scripts/recover-calls.js",
+    "deliver:webhooks": "npm run build && node dist/scripts/deliver-webhooks.js",
+    "api-key:create": "npm run build && node dist/scripts/api-key-create.js",
+    "api-key:list": "npm run build && node dist/scripts/api-key-list.js",
+    "api-key:revoke": "npm run build && node dist/scripts/api-key-revoke.js",
+    "api-key:rotate": "npm run build && node dist/scripts/api-key-rotate.js",
+    "webhook:create": "npm run build && node dist/scripts/webhook-create.js",
+    "webhook:rotate": "npm run build && node dist/scripts/webhook-rotate.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.57.4",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "openai": "^5.19.1",
+    "twilio": "^5.9.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.7",
+    "@types/supertest": "^7.2.1",
+    "supertest": "^7.2.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  }
+}

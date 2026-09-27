@@ -1,0 +1,2 @@
+import { webhookService } from "../services/webhook.service";
+const [business,url,name]=process.argv.slice(2);if(!business||!url)throw new Error("Usage: npm run webhook:create -- <business-identifier> <https-url> [name]");webhookService.createEndpoint(business,url,name).then(result=>{console.log("Webhook created. Copy the signing secret now; it cannot be retrieved again.");console.log(result.signing_secret);console.log(JSON.stringify(result.endpoint,null,2));}).catch(error=>{console.error(error instanceof Error?error.message:error);process.exitCode=1;});

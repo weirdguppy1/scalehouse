@@ -1,0 +1,2 @@
+import { webhookService } from "../services/webhook.service";
+const id=process.argv[2];if(!id)throw new Error("Usage: npm run webhook:rotate -- <endpoint-id>");webhookService.rotateSecret(id).then(result=>{console.log("Signing secret rotated. Copy it now; it cannot be retrieved again.");console.log(result.signing_secret);console.log(JSON.stringify(result.endpoint,null,2));}).catch(error=>{console.error(error instanceof Error?error.message:error);process.exitCode=1;});
